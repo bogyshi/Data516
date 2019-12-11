@@ -1,0 +1,9 @@
+avanroi1
+
+Spark and Machine Learning Scalability locally and in parallel
+Alexander Van Roijen
+11/2/19
+
+Two concerns.  What tool will you use to train locally using the GTX
+960?  And do you yet have access to the data?
+
