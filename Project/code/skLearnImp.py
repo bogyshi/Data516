@@ -7,8 +7,19 @@ from sklearn.linear_model import LogisticRegressionCV
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
+from pathlib import Path
+import pathlib
+
 import os
 import random
+
+homeDir = pathlib.Path.home()
+currentDir = pathlib.Path.cwd()
+githubDir = currentDir.parent.parent.parent
+combFileDirP = '/Data516/Project/data/'
+combFileDir =   Path(str(githubDir) + str(Path(combFileDirP)))
+dataDirP='/Data512/finalProject/data/'
+dataDir =   Path(str(githubDir) + str(Path(combFileDirP)))
 
 inTrainData=0
 outTrainData=1 # includes validation for cv
@@ -19,14 +30,11 @@ removeMonth = False
 
 def prepareData(doSmall = False):
 
-    with open('/home/bdvr/Documents/GitHub/Data516/Project/data/ins.pk','rb') as f:
+    with open(dataDir/'ins.pk','rb') as f:
         ins = pk.load(f)
 
-    with open('/home/bdvr/Documents/GitHub/Data516/Project/data/outLabels.pk','rb') as f:
+    with open(dataDir/'outLabels.pk','rb') as f:
         outs = pk.load(f)
-
-    with open('/home/bdvr/Documents/GitHub/Data516/Project/data/badIndexes.pk','rb') as f:
-        toRemove = pk.load(f)
 
     #pdb.set_trace()
 
